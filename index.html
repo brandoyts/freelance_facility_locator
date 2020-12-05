@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>OLFU Facility Locator</title>
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="./css/style.css" />
+		<link rel="icon" href="./images/logo.png" />
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.9.0/brython.js"
+			integrity="sha512-lKowijmhpB/T16sb11S7gsmtCZ/bHr3EhrKadpoiCn28xEj5F59FEhPWGMLYt6eAlMMlLijL3MQbaDCGAL0g0w=="
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.9.0/brython.js"
+			integrity="sha512-lKowijmhpB/T16sb11S7gsmtCZ/bHr3EhrKadpoiCn28xEj5F59FEhPWGMLYt6eAlMMlLijL3MQbaDCGAL0g0w=="
+			crossorigin="anonymous"
+		></script>
+	</head>
+	<body onload="brython()">
+		<div class="cssload-box-loading"></div>
+		<main id="main-content">
+			<div class="map-container">
+				<div class="overlay"></div>
+				<img id="map-img" src="images/default.png" alt="map" />
+			</div>
+			<div class="container">
+				<form>
+					<select name="facility" id="search-input">
+						<option value="">Please select a ficility</option>
+						<option value="cas">Cas Building</option>
+						<option value="admission">Admission Office</option>
+						<option value="cashier">Cashier</option>
+						<option value="hs">HS Building</option>
+						<option value="registrar">Registrar</option>
+						<option value="vsb">VSB Building</option>
+						<option value="canteen">Canteen</option>
+					</select>
+
+					<span id="invalid"></span>
+					<button type="submit" id="search-btn">Search</button>
+					<button type="button" id="reset-btn">Reset</button>
+				</form>
+			</div>
+			<footer>
+				<ul class="social-links">
+					<li>
+						<a href="https://www.facebook.com/fatima.university/"
+							><img src="/images/facebook.svg" alt=""
+						/></a>
+					</li>
+					<li>
+						<a href="https://twitter.com/fatimaphoenix?lang=en"
+							><img src="/images/twitter.svg" alt=""
+						/></a>
+					</li>
+				</ul>
+				<p>Our Lady of Fatima University &copy; 2020-2021</p>
+			</footer>
+		</main>
+
+		<script src="js/index.js" type="text/javascript" id="script0"></script>
+		<script type="text/python" id="script1">
+			from browser import document
+
+			def reset(e):
+				document["search-input"].value = ""
+
+			resetBtn = document["reset-btn"].bind('click', reset);
+		</script>
+	</body>
+</html>
